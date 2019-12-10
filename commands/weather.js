@@ -8,7 +8,7 @@ module.exports = {
     usage: 'weather [zipcode]', // Help text to explain how to use the command (if it had any arguments)
     execute(message, args) {
 
-        let weatherapi = '39bac1f34f6f93b0f3602907056186b4';
+        let weatherapi = 'api_key_here';
         let zip = args[0].toLowerCase();
 
         var Request = require("request");
