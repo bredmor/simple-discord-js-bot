@@ -8,19 +8,22 @@ A very simple Discord bot written with discord.js
  * Git
 
 ## Setup
-Do `git clone https://github.com/bredmor/simple-discord-js-bot.git` then navigate to the folder named `simple-discord-js-bot`.
+1. Clone this repository: `git clone https://github.com/bredmor/simple-discord-js-bot.git` then navigate to the new folder named `simple-discord-js-bot`
+2. Install dependencies with `npm i`
+3. Edit `config.json`, replacing the placeholder values with your desired command prefix and your bot token (If you don't have one yet, see the note below on how to generate one.)
+4. Start the bot with `node index.js`
+5. Add the bot to the server of your choice by filling out the details in this handy application https://discordapi.com/permissions.html#7168 and clicking the generated link.
 
-Use `npm install` to install all the dependencies.
-
-Enter the command prefix you want to use, and your discord bot API token in `config.json`
-
-Use `node index.js` to start the bot
-
-That's it! It's recommended that you use a process monitor like [PM2](https://pm2.keymetrics.io/) to run the bot instead of just `node`,
-that way it can be restarted on crashes and monitored.
+That's it! You can now try out the default commands like `!bot help`, or create your own and restart the bot to use them.
 
 >**Note:**
 If you don't already have a Discord bot application setup you can create one by going to the [Discord Developer Portal](https://discord.com/developers/applications/me), then create a new application, give it a name, go to the "Bot" tab, then click on "Add Bot", and you're good to go!
+
+## Running the bot permanently
+It's recommended that you use a process monitor like [PM2](https://pm2.keymetrics.io/) to run the bot instead of just `node`,
+that way it can be restarted on crashes and monitored.
+
+If you don't want to keep your computer on 24/7 to host the bot, I recommend a $5/month droplet from [DigitalOcean](https://m.do.co/c/b96f8bd70573).
 
 ## Defining Commands
 Simply create a new js file in the `commands` subdirectory that exports at least a `name`, `description` 
