@@ -1,6 +1,6 @@
 /**
- * This class responds to anyone that types !bot talk and chooses one of the phrases below to respond with at random.
- *
+ * This class responds to anyone that types !bot weather followed by their zipcode (e.g. !bot weather 90210) with the
+ * current weather for that area!
  */
 module.exports = {
     name: 'weather', // The name of the command
@@ -10,6 +10,12 @@ module.exports = {
 
         let weatherapi = 'api_key_here';
         let zip = args[0].toLowerCase();
+
+        if(weatherapi === 'api_key_here') {
+            console.error('No API key set in handlers/commands/weather.js');
+            console.log('Make sure you obtain an API key from https://openweathermap.org if you want to use the weather command!')
+            return;
+        }
 
         var Request = require("request");
 
@@ -31,7 +37,7 @@ module.exports = {
 
             let weather = `The current weather in ${city} is ${title} at a temperature of ${temp}F and humidity of ${humidity}. The wind is currently blowing at a speed of ${wind} MPH.`;
 
-            message.reply(weather);
+            return message.reply(weather);
         });
 
 
