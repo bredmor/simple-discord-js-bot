@@ -16,6 +16,6 @@ module.exports = {
             'I am the very model of a modern major general.'
         ];
 
-        message.reply(phrases[Math.floor(Math.random()*phrases.length)]); // Replies to the user with a random phrase
+        return message.reply(phrases[Math.floor(Math.random()*phrases.length)]); // Replies to the user with a random phrase
     },
 };
