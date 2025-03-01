@@ -1,4 +1,5 @@
 {
   "prefix": "!bot ",
-  "token": "YOUR-DISCORD-BOT-TOKEN-HERE"
+  "token": "YOUR-DISCORD-BOT-TOKEN-HERE",
+  "debug": true
 }

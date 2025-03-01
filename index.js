@@ -2,6 +2,7 @@ const fs = require('fs');                   // Loads the Filesystem library
 const Discord = require('discord.js');      // Loads the discord API library
 const Config = require('./config.json');    // Loads the configuration values
 const BotLib = require('./lib/bot.js');
+const DebugLib = require('./lib/debug.js');
 
 // Loads our dispatcher classes that figure out what handlers to use in response to events
 const Keywords = require('./dispatchers/keywordDispatch');
@@ -16,6 +17,10 @@ BotLib.loadHandlers(client, 'commands');
 BotLib.loadHandlers(client, 'keywords');
 
 const cooldowns = new Discord.Collection(); // Creates an empty list for storing timeouts so people can't spam with commands
+
+if(client.botConfig.debug) {
+    console.log('Config Loaded: ', client.botConfig);
+}
 
 // Starts the bot and makes it begin listening to events.
 client.on('ready', () => {
@@ -33,9 +38,12 @@ client.on('message', message => {
     if(Commands.handle(client, message, cooldowns)) {
         return; // If we handled a command, don't continue to handle events for the same message
     }
+
+    // Register debug message printer
+    DebugLib.debugPrintMessages(client, message);
 });
 
 // Log the bot in using the token provided in the config file
 client.login(client.botConfig.token).catch((err) => {
-    console.log(`Failed to authenticate with Discord network: "${err.message}"`);
+    console.log(`Failed to authenticate with Discord network.`, err);
 });

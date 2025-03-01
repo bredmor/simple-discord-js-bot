@@ -18,8 +18,7 @@ the v1.0 tag](https://github.com/bredmor/simple-discord-js-bot/tree/v1.0).
 3. Edit `config.json`, replacing the placeholder values with your desired command prefix and your bot token (If you 
    don't have one yet, see the note below on how to generate one.)
 4. Start the bot with `node index.js`
-5. Add the bot to the server of your choice by filling out the details in this 
-   [handy application](https://discordapi.com/permissions.html#7168) and clicking the generated link.
+5. Add the bot to the server of your choice by filling out the requisite permissions in the "OAuth2 URL Generator" form (start by checking "bot") on the OAuth2 section of the developer portal and navigating to the generated link.
 
 That's it! You can now try out the default commands like `!bot help`, or create your own and restart the bot to use them.
 

@@ -11,7 +11,7 @@ module.exports = {
             try {
                 // Run the command
                 keyword.execute(message).catch((err) => {
-                    console.error(`Failed running keyword handler ${keyword.name}: "${err.message}"`)
+                    console.error(`Failed running keyword handler ${keyword.name}."`, err)
                 });
                 return true;
             } catch(error) {

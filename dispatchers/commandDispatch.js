@@ -64,7 +64,7 @@ module.exports = {
         try {
             // Run the command
             command.execute(message, args).catch((err) => {
-                console.error(`Failed running command handler ${command.name}: "${err.message}"`)
+                console.error(`Failed running command handler ${command.name}".`, err)
             });
         } catch(error) {
             console.error(error);
