@@ -33,7 +33,7 @@ If you don't already have a Discord bot application setup you can create one by 
 After adding the bot to a server, call its command via `!bot commandname` where "!bot" is the prefix you defined in 
 config.js and "commandname" is the name of a command defined and exported in the `commands` folder.
 
-You can safely delete or modify the example commands `talk.js` and `weather.js` but it is recommended to keep `help.js`.
+You can safely delete or modify the example command `talk.js` but it is recommended to keep `help.js`.
 
 ## Running the bot permanently
 It's recommended that you use a process monitor like [PM2](https://pm2.keymetrics.io/) to run the bot instead of 
