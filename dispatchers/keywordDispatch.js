@@ -3,14 +3,17 @@
  * handler if found.
  */
 module.exports = {
-    handle(client, message) {
+    handle(container, message) {
+
+        if(message.author.bot) return;
+
         const messageContent = message.content.trim();
-        const keyword = client.keywords.get(messageContent)
-            || client.keywords.find(kwd => kwd.aliases && kwd.aliases.includes(messageContent));
+        const keyword = container.handlers.keywords.get(messageContent)
+            || container.handlers.keywords.find(kwd => kwd.aliases && kwd.aliases.includes(messageContent));
         if(keyword) {
             try {
                 // Run the command
-                keyword.execute(message).catch((err) => {
+                keyword.execute(container, message).catch((err) => {
                     console.error(`Failed running keyword handler ${keyword.name}."`, err)
                 });
                 return true;

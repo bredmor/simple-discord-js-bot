@@ -6,7 +6,7 @@ module.exports = {
     aliases: ['lahee', 'la hee', 'LA HEE'], // Other keywords to react to
     gifLink: 'https://tenor.com/view/soken-fan-fest-lahee-otamatone-hum-gif-21581907', // The gif we're responding with
     // We could respond with text, or any other type of file instead.
-    execute(message) {
+    execute(container, message) {
         return message.channel.send(this.gifLink);
     },
 };

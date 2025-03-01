@@ -1,23 +1,35 @@
 # Simple Discord JS Bot
 A starter bot and "framework" to build Discord bots from.
 
-## Version 2!
-This updated version adds some new functionality to allow for the easy creation of more advanced
-bots, and some updated help as well. The original simple-discord-js-bot code can be found [here on 
-the v1.0 tag](https://github.com/bredmor/simple-discord-js-bot/tree/v1.0).
+Includes a lot of extra comments, assuming the user is new to programming.
+
+## Version 3
+This version contains mostly quality of life improvements to make things easier and stay up to date.
+
+If you're migrating from an old version, be aware that you need to place your `config.json` values into an `.env` file, or load them into the shell environment, following the keys in `.env.example`
+
+Code for versions 1 and 2 can be found via their respective [tags](https://github.com/bredmor/simple-discord-js-bot/tags).
+
+### Upgrading from previous versions
+_General:_
+- Configuration values are no longer loaded from `config.json`, instead being automatically read from the shell environment (sourced from the `.env` file if you use `npm run serve`).
+- The `client` variable previously used to inject the discordJS library and bot config has been restructured and renamed to `Container`.
+- - The discord client is now located at `Container.discord`
+- - The config is now located at `Container.botConfig`.
+- - Handlers are also now loaded into `Container.handlers[handlerDirectoryName]` (i.e `Container.handlers.keywords`) instead of being on the client.
+- The `Container` object is now additionally passed as the first argument to the `execute` function on command and keyword handlers.
 
 ## Prerequisites
- * Node JS >= 12.0.0
- * NPM >= 6.9.0
- * Git
+ * Node JS >= 20.6.0
+ * NPM >= 10.2.0
 
 ## Setup
-1. Clone this repository: `git clone https://github.com/bredmor/simple-discord-js-bot.git` then navigate to the new 
+1. Clone this repository: `git clone https://github.com/bredmor/simple-discord-js-bot.git` or download and unzip it, then navigate to the new 
    folder named `simple-discord-js-bot`
 2. Install dependencies with `npm i`
-3. Edit `config.json`, replacing the placeholder values with your desired command prefix and your bot token (If you 
+3. Copy `.env.example` to `.env`, replacing the placeholder values with your desired command prefix and your bot token (If you 
    don't have one yet, see the note below on how to generate one.)
-4. Start the bot with `node index.js`
+4. Start the bot with `npm run serve`
 5. Add the bot to the server of your choice by filling out the requisite permissions in the "OAuth2 URL Generator" form (start by checking "bot") on the OAuth2 section of the developer portal and navigating to the generated link.
 
 That's it! You can now try out the default commands like `!bot help`, or create your own and restart the bot to use them.
@@ -40,6 +52,8 @@ just `node`, that way it can be restarted on crashes and monitored.
 
 If you don't want to keep your computer on 24/7 to host the bot, I recommend a $5/month droplet from 
 [DigitalOcean](https://m.do.co/c/b96f8bd70573).
+
+(!) When you're done developing your bot, you should set the `DEBUG` value in `.env` to `false`, to avoid filling up your console with unnecessary logs.
 
 ## Defining Commands
 Simply create a new js file in the `handlers/commands` subdirectory that exports at least a `name`, `description` 
